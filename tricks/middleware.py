@@ -1,0 +1,66 @@
+import logging
+import random
+
+log = logging.getLogger('django.request')
+
+class GrandpaSimpsonMiddleware(object):
+    def process_response(self, request, response):
+        response['X-Grandpa'] = GRANDPA[random.randint(0, len(GRANDPA) - 1)]
+        return response
+
+GRANDPA = [
+    "To my son Homer... (Woohoo!) ...and his entire family... (D'oh!) ...I leave these: a box of mint-condition 1918 liberty-head silver dollars.",
+    "You see, back in those days, rich men would ride around in Zeppelins, dropping coins on people, and one day I seen J.D. Rockefeller flying by.",
+    "So I run of the house with a big washtub and... hey! Where are you going?",
+    "Anyway, about my washtub.",
+    "I'd just used it that morning to wash my turkey, which in those days was known as ... a walking-bird.",
+    "We'd always have walking-bird on Thanksgiving, with all the trimmings: cranberries, injun eyes, yams stuffed with gunpowder.",
+    "Then we'd all watch football, which in those days was called baseball...",
+    "Eh, why didn't you get something useful, like storm windows, or a nice pipe organ?",
+    "I'm thirsty!",
+    "Ew, what smells like mustard?",
+    "There sure are a lot of ugly people in your neighborhood.",
+    "Ooh, look at that one.",
+    "Ow, my glaucoma just got worse.",
+    "The president is a Demmycrat!",
+    "Hello? I can't unbuckle my seat belt.",
+    "There are too many leaves in your walkway...",
+    "We can't bust heads like we used to, but we have our ways.",
+    "One trick is to tell 'em stories that don't go anywhere - like the time I caught the ferry over to Shelbyville.",
+    "I needed a new heel for my shoe, so, I decided to go to Morganville, which is what they called Shelbyville in those days.",
+    "So I tied an onion to my belt, which was the style at the time.",
+    "Now, to take the ferry cost a nickel, and in those days, nickels had pictures of bumblebees on 'em.",
+    "Give me five bees for a quarter, you'd say.",
+    "Now where were we?",
+    "Oh yeah: the important thing was I had an onion on my belt, which was the style at the time.",
+    "They didn't have white onions because of the war.",
+    "The only thing you could get was those big yellow ones...",
+    "Ah, there's an interesting story behind this nickel.",
+    "In 1957, I remember it was, I got up in the morning and made myself a piece of toast.",
+    "I set the toaster to three: medium brown.",
+    "I first took a fancy to Mrs. Bouvier because her raspy voice reminded me of my old Victrola.",
+    "Oh, it was a fine machine with a vulcanized rubber listening tube which you crammed in your ear.",
+    "The tube would go in easier with some sort of lubricant like linseed oil or Doctor Shumway's ...",
+    "Not many people know this, but I owned the first radio in Springfield.",
+    "Not much on the air then, just Edison reciting the alphabet over and over.",
+    "A he'd say; then B. C would usually follow...",
+    "My story begins in nineteen-dickety-two.",
+    "We had to say dickety because the Kaiser had stolen our word twenty.",
+    "I chased that rascal to get it back, but gave up after dickety-six miles.",
+    "What are you cackling at, fatty?",
+    "Too much pie, that's your problem!",
+    "Now, I'd like to digress from my prepared remarks to discuss how I invented the terlet.",
+    "Well you're really asking two questions there.",
+    "The first one takes me back to 1934.",
+    "Admiral Burn had just reached the pole, only hours ahead of the Three Stooges...",
+    "...and I guess he won the argument, but I walked away with the turnips.",
+    "The following morning I resigned my commission with the Coast Guard.",
+    "The next thing I knew there was civil war in Spain...",
+    "...and, that's everything which happened in my life right up to the time I got this phone call...",
+    "Three wars back we called Sauerkraut \"liberty cabbage\" and we called liberty cabbage \"super slaw\" and back then a suitcase was known as a \"Swedish lunchbox.\"",
+    "Of course, nobody knew that but me.",
+    "Anyway, long story short...is a phrase whose origins are complicated and rambling.",
+    "Then after World War Two, it got kinda quiet, 'til Superman challenged FDR to a race around the world.",
+    "FDR beat him by a furlong, or so the comic books would have you believe.",
+    "The truth lies somewhere in between.",
+]
